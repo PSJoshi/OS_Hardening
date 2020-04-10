@@ -1,4 +1,4 @@
-# Enhancing security ofWindows Endpoint using Windows Firewall
+# Enhancing security of Windows Endpoint using Windows Firewall
 Windows firewall has been integral component of Microsoft Windows Operating system since Windows XP (Now, it's called Windows Defender Firewall) and everyone should use it a part of defense in depth stratergy. Enabling and applying firewall rules is  one of the easiest way to limit remote accesses to many commonly abused services.
 In addition, firewall helps you to filter information as received from Internet and block unwanted network traffic going to Internet. It also blocks all unsolicited attempts to connect to your computer without your knowledge and keeps the endpoint safe from malicious actors.
 By enforcing firewall rules, you are limiting potential attack surface of the endpoint as exploitable services can no longer be accessed easily. Further, you can enforce IPSEC authentication on all the management services and provide additional encryption to services that rely on plaintext or weak ciphers. By having these measures in place, you are making the life of attacker more difficult and frustrating!
