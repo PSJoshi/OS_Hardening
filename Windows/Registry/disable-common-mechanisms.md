@@ -17,7 +17,7 @@ Windows will mount any newly attached storage devices and it can be a bad thing.
 * Run the command at command prompt - mountvol /N
 * or set registry key - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MountMgr\NoAutoMount to 1
 
-### Disable search indexing
-It's always good to disable any automated indexing of any sort to prevent alteration of MACB times. To disable the service, do the following:
+### Disable search indexing (in forensic investigations)
+It's always good to disable any automated indexing of any sort to prevent alteration of MACB times in any cyber-forensic investigation. To disable the service, do the following:
 * Open the Services applet (services.msc).
 * Locate and disable the Windows Search service (i.e. stop the service and set the startup type to be Disabled so that it won't run again).
