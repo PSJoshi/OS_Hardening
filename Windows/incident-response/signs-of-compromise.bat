@@ -116,4 +116,52 @@ echo.
 echo. 
 echo "######################################################"
 
+# logical disks information
+wmic logicaldisk get name,freespace,systemname,size,volumename,filesystem
+
+# Disk information
+wmic diskdrive get name,size,mediatype
+
+# computer information
+#wmic computersystem list /format:list
+wmic computersystem get domain,manufacturer,model,name,username,primaryownername,numberofprocessors,systemtype
+
+# product list
+wmic product get description,installdate,name,vendor,version
+
+# shared folders
+net share
+net view \\127.0.0.1
+
+# password account policies
+net accounts
+
+# user account details
+ wmic useraccount list full
+
+# Enumerate user information
+#for /F "skip=1" %i in ('wmic useraccount get name') do net user %i >> c:\user.txt
+for /F "skip=1" %i in ('wmic useraccount get name') do net user %i
+
+# Enumerate group information
+for /F "delims=* tokens=1 skip=4" %i in ('net localgroup') do net localgroup %i >> c:\groups.txt
+
+# Windows Service list
+sc query
+# Windows service list using wmic
+wmic service get displayname,pathname,startname,state,startmode,servicetype
+
+# Windows services started during power up
+net start
+
+# Process with associated service 
+tasklist /svc 
+
+# all running process list 
+tasklist /v 
+
+# process list using wmic 
+wmic process list full 
+wmic process get name,processid,parentprocessid,executablepath,installdate,virtualsize,executionstate 
+
 ::more-settings-to-be-added...
