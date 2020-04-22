@@ -31,6 +31,14 @@ There are tools/script available from open source as well as commericial domains
 * Live response collection - https://www.brimorlabs.com/tools/
 * FastIR collector - https://github.com/SekoiaLab/Fastir_Collector
 * IR evidence collector - https://binalyze.com/products/irec
+* DFIR triage - https://github.com/travisfoley/dfirtriage
+* Windows collection using Batch configuration - https://github.com/opsdisk/batchconfig
+* Evidence collector windows - https://github.com/heikovoegeli/ETHZ_EC_Winx86
+
+Examples of commercial tools for data collection are:
+CrowdStrike - https://www.crowdstrike.com/wp-content/community-tools/CrowdResponse.zip
+IR evidence collector - https://binalyze.com/products/irec
+
 
 The following site contain links to many such programs - https://medium.com/@soji256/evidence-collecting-tools-for-fast-forensics-f4ee952f32bb
 
