@@ -50,6 +50,7 @@ The features that I am targeting are :
 * On demand reports generation
 
 To start with, I have written a windows batch file that collect most important artifacts of windows environment to a file "assessment.txt". 
-To do:
+
+### To do:
 * Convert data collection file - "assessment.txt" to JSON or any other format to make it machine readable.
 * Generate report that summarizes data collection information and indiate if the PC is infected
