@@ -240,3 +240,41 @@ echo.
 wmic /append:%results_file% process where "commandline is not null and commandline!=''" get name,commandline
 echo.
 echo "######################################################"
+
+
+# Remote desktop sessions
+reg query "HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client\Default"
+
+# autorun entries
+wmic startup list full
+wmic /append:%results_file% startup get caption,description, command,location
+
+#scheduled tasks
+schtasks /query /fo list
+
+# driver information
+driverquery /fo list
+
+# ARP entries
+arp -a
+
+# firewall - current profile status
+netsh advfirewall show currentprofile
+
+# firewall - current configuration
+netsh firewall show config
+
+# search file system for file names containing certain keywords 
+dir /s *pass* == *cred* == *vnc* == *.config
+
+# grep registry for keywords. e.g password
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+
+# Check if registry setting "AlwaysInstallElevated" is present or not. If this setting is enabled, it allows users of any priviledge level to install .msi packages as SYSTEM.
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated
+
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated
+
+# display information about process
+qprocess
