@@ -241,40 +241,82 @@ wmic /append:%results_file% process where "commandline is not null and commandli
 echo.
 echo "######################################################"
 
-
-# Remote desktop sessions
+echo "######################################################"
+echo "Getting Remote desktop sessions information"
+echo.
 reg query "HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client\Default"
+echo.
+echo "######################################################"
 
-# autorun entries
-wmic startup list full
+echo "######################################################"
+echo "Getting autorun entries"
+REM wmic startup list full
+echo.
 wmic /append:%results_file% startup get caption,description, command,location
+echo.
+echo "######################################################"
 
-#scheduled tasks
+echo "######################################################"
+echo "Getting scheduled tasks information"
+echo.
 schtasks /query /fo list
+echo.
+echo "######################################################"
 
-# driver information
+echo "######################################################"
+echo "Getting installed drivers information"
+echo.
 driverquery /fo list
+echo.
+echo "######################################################"
 
-# ARP entries
+echo "######################################################"
+echo "Getting ARP entry information"
+echo.
 arp -a
+echo.
+echo "######################################################"
 
-# firewall - current profile status
+echo "######################################################"
+echo "Getting firewall - current profile status"
+echo.
 netsh advfirewall show currentprofile
+echo.
+echo "######################################################"
 
-# firewall - current configuration
+echo "######################################################"
+echo "Getting firewall - current configuration"
+echo.
 netsh firewall show config
+echo.
+echo "######################################################"
 
-# search file system for file names containing certain keywords 
+echo "######################################################"
+echo "Searching file system for file names that contain certain keywords" 
+echo.
 dir /s *pass* == *cred* == *vnc* == *.config
+echo.
+echo "######################################################"
 
-# grep registry for keywords. e.g password
+echo "######################################################"
+echo "Searching registry for certain keywords. e.g password"
+echo.
 reg query HKLM /f password /t REG_SZ /s
 reg query HKCU /f password /t REG_SZ /s
+echo.
+echo "######################################################"
 
-# Check if registry setting "AlwaysInstallElevated" is present or not. If this setting is enabled, it allows users of any priviledge level to install .msi packages as SYSTEM.
+echo "######################################################"
+echo "Check if registry setting "AlwaysInstallElevated" is present or not."
+REM "If this setting is enabled, it allows users of any priviledge level to install .msi packages as SYSTEM."
+echo.
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated
+echo.
+echo "######################################################"
 
-reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer\AlwaysInstallElevated
-
-# display information about process
+echo "######################################################"
+echo "Displaying information about process"
+echo.
 qprocess
+echo.
+echo "######################################################"
