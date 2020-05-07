@@ -327,3 +327,8 @@ echo.
 auditpol /get /category:*
 echo.
 echo "######################################################"
+
+::secedit /export /areas USER_RIGHTS /cfg C:\Users\<user>\Desktop\usr_rights.txt
+::wmic useraccount
+::wmic useraccount where name='<user>' get sid
+::whoami /PRIV /FO LIST
