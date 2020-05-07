@@ -1,17 +1,17 @@
 ### Why Incidence Response 
-In many companies, a standard procedure to deal with any cyber incident typically involves two steps:
+In many organizations, a standard procedure to deal with any cyber incident typically involves two steps:
 * take the PC off the network
 * format its OS drive -i.e. reinstall the system
-It is assumed that the problem will disappear on its own!
+It is presumed that the problem will disappear on its own!
 
-Unfortunately, the evidence regarding the root cause and any side-effect(s) of incident is automatically destoryed and no body really bothers! But, in holistic sense, the organization has not become wiser and is still exposed to the same or similar attacks in the future.
+Unfortunately, the evidence regarding the root cause and any side-effect(s) of incident is automatically destoryed but no body really bothers! But, in holistic sense, the organization has not become wiser and is still exposed to the same or similar attacks in the future.
 
 Further, any incident response process requires you to understand attacker’s actions on compromised machines and this often requires examining hundreds or even thousands of artifacts to find the "needle" in the haystack.These artifacts typically include running processes, running services, current login information, open files, open shares, open handles, and so on. By having many artifacts, it is posssible to extract finer details of the attack and this allows us to rebuild the attack scenerio in a comprehensive way.
-Secondly, in todays world, organizations are having their offices spread through various geo-graphical regions and these are often run with minimal IT staff. It is not possible to have Incident response (IR) team/ Security Experts available everywhere, organizations are always looking for ways to do operations remotely or if there is a way to collect these artifacts in an automated way.
+Secondly, in todays world, organizations are having their offices spread through various geo-graphical regions and these are often run with minimal IT staff. Since it is not possible to have Incident response (IR) team/ Security Experts available everywhere, organizations are always looking for ways to do operations remotely or if there is a way to collect these artifacts in an automated way.
 
 "Live response" is the term commonly used by Incidence responders/ Security Analyst for collection of such artifacts from a running compromised machine.The basic goal here is to identify and analyze the initial "trigger" as quickly as possible. Further, IR experts are interested in capture of volatile memory information as the system state may substantially change over a period of time.
 
-However, live  response has its own challenges as given below:
+However, "Live  response" has its own challenges as mentioned below:
 * Ability to remotely access and run code on a compromised machine.
 * To remain unnoticed by the attacker; information-gathering process must be stealthy.
 * Operations must not "jeopardize cyber crime scene." - known as Locard's Exchange Principle
