@@ -63,3 +63,18 @@ To start with, I have written a windows batch file that collect most important a
 ### To do:
 * Convert data collection file - "assessment.txt" to JSON or any other format to make it machine readable.
 * Generate report that summarizes data collection information and indiate if the PC is infected
+
+### Running of Unusual services
+Checking un-usual and un-authorized services should be included in the plan of any incident responders(IR). In addition, IR should also check if any default services are compromised thorugh mechanisms like process injection, process hollowing. Many viruses and malwares try to install themselves as a service so that they are automatically started again after a reboot. 
+
+If you are familiar with startup services and have established their baseline, it will greatly reduce the efforts on incident responder part during the course of investigations.  If running a particular service is not necessary, it should be clearly identified and removed permanently from startup list of services. If any malicious service(s) is found to be running, it should be stopped immediately and you have to make sure that it should not be running again.
+The following command is usually used to keep track of services during startup:
+```
+net start
+```
+[[screenshot]]
+There is also another command (Windows 7 onwards) that gives detailed information
+```
+sc query
+```
+[[screenshot]]
