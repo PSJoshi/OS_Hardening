@@ -328,6 +328,99 @@ auditpol /get /category:*
 echo.
 echo "######################################################"
 
+echo "######################################################"
+echo "Checking various autostart program locations.."
+echo.
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\Run /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnceEx /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunServices /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce /S
+reg.exe query HKLM\Software\Policies\Microsoft\Windows\System\Scripts /S
+reg.exe query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run\ /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Run /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnceEx /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunServices /S 
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\RunServicesOnce /S 
+reg.exe query HKCU\Software\Policies\Microsoft\Windows\System\Scripts /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run\ /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs /S
+reg.exe query HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU /S
+reg.exe query HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall /S
+reg.exe query HKLM\SYSTEM\CurrentControlSet\Control\SafeBoot\Minimal\ /S
+reg.exe query HKLM\SYSTEM\CurrentControlSet\Control\SafeBoot\Network\ /S
+reg.exe query "HKCU\Software\Microsoft\Internet Explorer\TypedURLs" /S
+echo.
+echo "######################################################"
+
+
+echo "######################################################"
+echo "Checking doskey history.."
+echo.
+doskey/history
+echo.
+echo "######################################################"
+
+echo "######################################################"
+echo "Checking presence of any autostart programs/tasks, contents of system.ini"
+echo.
+type "%SystemDrive%\autoexec.bat"
+type "%SystemRoot%\system.ini"
+type "%SystemRoot%\winstart.bat"
+type "%SystemRoot%\wininit.ini"
+dir "%SystemDrive%\Documents and Settings\All Users\Start Menu\Programs\Startup"
+dir "%SystemRoot%\Tasks"
+dir "%UserProfile%\Start Menu\Programs\Startup"
+echo.
+echo "######################################################"
+
+echo "######################################################"
+echo "Getting information about all the sessions with the local computer."
+echo.
+net session
+echo.
+echo "######################################################"
+
+echo "######################################################"
+echo "Getting a list of domains, computers, or resources that are being shared by the specified computer"
+echo.
+net view
+echo.
+echo "######################################################"
+
+echo "######################################################"
+echo "Getting information about the list of persistent network connections"
+echo. 
+net use
+echo.
+echo "######################################################"
+
+
+echo "######################################################"
+echo "Getting contents of the NetBIOS name cache, the table of NetBIOS names and their resolved IP addresses"
+echo. 
+nbtstat -c
+echo.
+echo "######################################################"
+
+
+echo "######################################################"
+echo "Getting NetBIOS client and server sessions information"
+echo. 
+nbtstat -s
+echo.
+echo "######################################################"
+
+
+echo "######################################################"
+echo "Getting NetBIOS name table of the local computer."
+echo. 
+nbtstat -n
+echo.
+echo "######################################################"
+
 ::secedit /export /areas USER_RIGHTS /cfg C:\Users\<user>\Desktop\usr_rights.txt
 ::wmic useraccount
 ::wmic useraccount where name='<user>' get sid
