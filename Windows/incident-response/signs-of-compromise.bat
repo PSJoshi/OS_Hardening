@@ -421,6 +421,56 @@ nbtstat -n
 echo.
 echo "######################################################"
 
+echo "######################################################"
+echo "Getting computer configuration information "
+echo. 
+net config server
+net config workstation
+echo.
+echo "######################################################"
+
+echo "######################################################"
+echo "Getting information about trusted domains"
+echo. 
+nltest /domain_trusts
+echo.
+echo "######################################################"
+
+
+echo "######################################################"
+echo "Getting directory listings from all drives as per last accessed time"
+echo. 
+:: listing as per last accessed time
+:: dir C:\ /S /OD /TA
+for /f "skip=1 tokens=1,2 delims=: " %%a in ('wmic logicaldisk get deviceid^,volumename') do (
+dir %%a:\ /S /OD /TA
+)
+echo.
+echo "######################################################"
+
+echo "######################################################"
+echo "Getting directory listings from all drives as per last accessed time"
+echo. 
+:: listing as per file creation time
+:: dir C:\ /S /OD /TC
+for /f "skip=1 tokens=1,2 delims=: " %%a in ('wmic logicaldisk get deviceid^,volumename') do (
+dir %%a:\ /S /OD /TC
+)
+echo.
+echo "######################################################"
+
+
+echo "######################################################"
+echo "Getting directory listings from all drives as per last accessed time"
+echo. 
+:: listing as per file modification time
+:: dir C:\ /S /OD /TW
+for /f "skip=1 tokens=1,2 delims=: " %%a in ('wmic logicaldisk get deviceid^,volumename') do (
+dir %%a:\ /S /OD /TW
+)
+echo.
+echo "######################################################"
+
 ::secedit /export /areas USER_RIGHTS /cfg C:\Users\<user>\Desktop\usr_rights.txt
 ::wmic useraccount
 ::wmic useraccount where name='<user>' get sid
