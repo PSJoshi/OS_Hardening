@@ -42,7 +42,6 @@ echo ""
 day=$(date +"%d-%m-%Y")
 hostname=$(hostname -s)
 collection="$hostname.$day"
-memory_image="$hostname.$day.mem"
 
 #Create a log file of the collection process.
 
@@ -292,11 +291,6 @@ echo "Collecting network information... DONE!" | tee -a $AUDIT_DIR/$baseline_col
 echo " " >> $AUDIT_DIR/$baseline_collection_log
 echo "Generating list for potential malicious files/directories "
 echo " " >> $AUDIT_DIR/$baseline_collection_log
-
-#echo "CREATING DIRECTORY LISTING OF FILES..." | tee -a $AUDIT_DIR/$baseline_collection_log
-#echo "FULL DIRECTORY LISTING: " >> $AUDIT_DIR/$baseline_collection_log
-#ls -l -A -h -R / | tee -a  $AUDIT_DIR/$baseline_collection_log
-#echo " " >> $AUDIT_DIR/$baseline_collection_log
 
 echo "List ALL hidden files:" >> $AUDIT_DIR/$baseline_collection_log
 find / -type f -name "\.*" | tee -a $AUDIT_DIR/$baseline_collection_log
